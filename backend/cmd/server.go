@@ -10,7 +10,7 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/YuheiNakasaka/go-dev-containers-template/backend/internal/hello"
+	"github.com/omurayuki/student-api/backend/internal/hello"
 )
 
 func handle(w http.ResponseWriter, r *http.Request) {

@@ -16,7 +16,7 @@ type Address struct {
 
 var alex = User{
 	ID:   0,
-	Name: "Yuhei Nakasaka",
+	Name: "Yuki Omura",
 	Addr: &Address{
 		City: "",
 		ZIP:  0,

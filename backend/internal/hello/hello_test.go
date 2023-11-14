@@ -7,7 +7,7 @@ func TestHello(t *testing.T) {
 		name string
 		want string
 	}{
-		{"hello without name", "Hello, Yuhei Nakasaka"},
+		{"hello without name", "Hello, Yuki Omura"},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
