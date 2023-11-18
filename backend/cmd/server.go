@@ -6,20 +6,17 @@
 package main
 
 import (
-	"fmt"
-	"io"
-	"net/http"
-
+	"github.com/gin-gonic/gin"
 	"github.com/omurayuki/student-api/backend/internal/hello"
 )
 
-func handle(w http.ResponseWriter, r *http.Request) {
-	io.WriteString(w, hello.Hello())
-}
-
 func main() {
-	portNumber := "9000"
-	http.HandleFunc("/", handle)
-	fmt.Println("Server listening on port ", portNumber)
-	http.ListenAndServe(":"+portNumber, nil)
+	portNumber := "8000"
+	router := gin.Default()
+
+	router.GET("/", func(c *gin.Context) {
+		c.String(200, hello.Hello())
+	})
+
+	router.Run(":" + portNumber)
 }
