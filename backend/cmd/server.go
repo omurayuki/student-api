@@ -7,16 +7,18 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/omurayuki/student-api/backend/internal/hello"
+	"github.com/omurayuki/student-api/backend/internal/handler"
 )
 
 func main() {
-	portNumber := "8000"
 	router := gin.Default()
+	setupRoutes(router)
+	router.Run(":8000")
+}
 
-	router.GET("/", func(c *gin.Context) {
-		c.String(200, hello.Hello())
-	})
-
-	router.Run(":" + portNumber)
+func setupRoutes(router *gin.Engine) {
+	router.GET("/students", handler.GetStudents)
+	router.POST("/students", handler.CreateStudent)
+	router.PUT("/students", handler.UpdateStudent)
+	router.DELETE("/students", handler.DeleteStudent)
 }
